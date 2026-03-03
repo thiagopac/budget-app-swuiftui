@@ -1,51 +1,51 @@
 # BudgetsApp
 
-`BudgetsApp` é um app iOS simples em SwiftUI para controle de orçamento por categorias, com persistência local usando Core Data.
+`BudgetsApp` is a simple iOS app built with SwiftUI for budget tracking by category, with local persistence using Core Data.
 
-## Objetivo
+## Purpose
 
-Este projeto serve como referência prática e enxuta para aprender:
+This repository is a compact practical reference to learn:
 
-- Integração de SwiftUI com Core Data
-- Uso de `@FetchRequest` para listar dados persistidos
-- Relacionamento entre entidades (`BudgetCategory` -> `Transaction`)
-- Atualização de UI orientada a estado
+- SwiftUI + Core Data integration
+- Using `@FetchRequest` to display persisted data
+- Entity relationships (`BudgetCategory` -> `Transaction`)
+- State-driven UI updates
 
-## O que o app faz
+## What this app does
 
-- Cria categorias de orçamento com título e valor total
-- Lista categorias com valor total e saldo restante
-- Permite editar categoria (toque longo na célula)
-- Permite excluir categoria
-- Abre detalhes da categoria para adicionar transações
-- Lista e exclui transações
-- Mostra resumo com status **Remaining** ou **Overspent**
+- Creates budget categories with title and total amount
+- Lists categories with total and remaining balance
+- Edits a category (long press on a row)
+- Deletes a category
+- Opens category details to add transactions
+- Lists and deletes transactions
+- Shows a summary with **Remaining** or **Overspent** status
 
-## Estrutura principal
+## Main structure
 
-- `BudgetsApp/BudgetsAppApp.swift`: inicialização do app e injeção do contexto Core Data
-- `BudgetsApp/Managers/CoreDataManager.swift`: stack do Core Data (`NSPersistentContainer`)
-- `BudgetsApp/Models/`: entidades `BudgetCategory` e `Transaction`
-- `BudgetsApp/Views/`: telas de listagem, formulário e detalhe
+- `BudgetsApp/BudgetsAppApp.swift`: app entry point and Core Data context injection
+- `BudgetsApp/Managers/CoreDataManager.swift`: Core Data stack (`NSPersistentContainer`)
+- `BudgetsApp/Models/`: `BudgetCategory` and `Transaction` entities
+- `BudgetsApp/Views/`: list, form, and detail screens
 
-## Modelo de dados (Core Data)
+## Data model (Core Data)
 
 - `BudgetCategory`
   - `title`
   - `total`
   - `dateCreated`
-  - relacionamento com várias `Transaction`
+  - relationship to many `Transaction` items
 - `Transaction`
   - `title`
   - `total`
   - `dateCreated`
-  - relacionamento com uma `BudgetCategory`
+  - relationship to one `BudgetCategory`
 
-## Como executar
+## How to run
 
-1. Abra `BudgetsApp.xcodeproj` no Xcode.
-2. Selecione um simulador iOS.
-3. Rode o projeto com `Cmd + R`.
+1. Open `BudgetsApp.xcodeproj` in Xcode.
+2. Select an iOS simulator.
+3. Run the project with `Cmd + R`.
 
 ## Stack
 
@@ -53,6 +53,6 @@ Este projeto serve como referência prática e enxuta para aprender:
 - SwiftUI
 - Core Data
 
-## Observação
+## Note
 
-Todos os dados são locais (não há chamadas de API neste projeto).
+All data is local (this project does not use API calls).
